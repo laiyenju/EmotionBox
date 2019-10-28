@@ -1,8 +1,9 @@
-#include <HX711_ADC.h>
+//引入資料庫
+#include <HX711_ADC.h>  //HX711 套件庫
 #include <EEPROM.h>
-#include <CuteBuzzerSounds.h>
+#include <CuteBuzzerSounds.h> //提供給蜂鳴器採用的聲音庫，可以實現豐富的音效，卻能避開 delay 寫法
 
-//int buzzer = 2; // 用Pin0 輸出方波至蜂鳴器
+// 配合 CuteBuzzerSounds 資料庫的方式，將 Pin2 設定為蜂鳴器輸出口
 #define BUZZER_PIN 2
 
 //HX711 constructor (dout pin, sck pin):
@@ -11,7 +12,6 @@ HX711_ADC LoadCell(4, 5);
 const int eepromAdress = 0;
 
 long t;
-int weigh;
 int currentWeigh;
 int secondWeigh;
 
@@ -19,7 +19,7 @@ int secondWeigh;
 int R[] = {2,7,A5,A0,13,A4,12,A2}; //行
 int C[] = {6,11,10,3,A3,A1,8,9};   //列
  
-int sad[8][8] =       //sad icon
+int sad[8][8] =       //哭臉表情
 {
   {0,0,0,0,0,0,0,0},
   {1,1,1,0,0,1,1,1},
@@ -31,7 +31,7 @@ int sad[8][8] =       //sad icon
   {0,0,0,0,0,0,0,0}
 };
  
-int happy[8][8] =      //happy icon
+int happy[8][8] =      //笑臉表情
 {
   {0,0,0,0,0,0,0,0},
   {1,1,1,0,0,1,1,1},
@@ -43,24 +43,11 @@ int happy[8][8] =      //happy icon
   {0,0,0,0,0,0,0,0}
 };
 
-int brink[8][8] =    //眨眼icon
-{
-  {0,0,0,0,0,0,0,0},
-  {1,1,1,0,0,0,0,0},
-  {1,0,1,0,0,1,1,1},
-  {1,1,1,0,0,0,0,0},
-  {0,0,0,0,0,0,0,0},
-  {0,1,0,0,0,0,1,0},
-  {0,0,1,1,1,1,0,0},
-  {0,0,0,0,0,0,0,0}
-};
-
 
 byte emoji = 1;
 unsigned long changeEmoji = 0;
 
 void setup() {
-  // put your setup code here, to run once:
 
   int calValue; // calibration value
   calValue = 50; // uncomment this if you want to set this value in the sketch 
@@ -88,14 +75,13 @@ void setup() {
     digitalWrite(C[i], LOW);
   }
   
-  //蜂鳴器 setup
-//  pinMode(buzzer,OUTPUT);
+   //蜂鳴器初始化
     cute.init(BUZZER_PIN); 
   
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+
   LoadCell.update();
 
   //get smoothed value from data set
@@ -116,15 +102,10 @@ void loop() {
     Serial.print("Second weight is: ");
     Serial.println(secondWeigh);
     if(secondWeigh - currentWeigh < 0) emoji = 1;   //測到的重量沒有改變，就哭哭；一直沒裝水，也哭哭
-    else emoji = 2, cute.play(S_HAPPY);;
+    else emoji = 2, cute.play(S_HAPPY);;  //顯示哭臉的同時，蜂鳴器發出 S_HAPPY 的聲音
     changeEmoji = millis();
   }
-
-  //設定蜂鳴器響的條件
-//  if (millis() > t + 20000) {
-//    if(emoji == 2)
-//    Serial.println("BUZZER!");
-//    cute.play(S_HAPPY);
+ 
 }
 
 void DisplaySad()  //顯示哭臉的設定
