@@ -1,5 +1,5 @@
 # Arduino EmotionBox
-Emotion Box is a reminder for drinking water.
+Emotion Box is an Arduino device as a reminder for drinking water.
 
 ### Preparation
 - Arduino UNO board *1
