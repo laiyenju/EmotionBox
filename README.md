@@ -20,14 +20,19 @@ Arduino Emotion Coaster is an Arduino device as a reminder for drinking water.
 
 以上是一個循環。
 
-> **程式碼 👉[emotion_coaster](https://github.com/laiyenju/EmotionCoaster/blob/master/emotion_coaster.ino)_**
-- 確定能比較重量，並依照重量改變而更換 LED 表情
-
 #### 使用的裝置
 - 主機板：Arduino UNO
 - HX711 秤重器
 - 蜂鳴器
-- 8x8 矩陣 LED 
+- 8x8 矩陣 LED
+
+**程式碼 👉[emotion_coaster](https://github.com/laiyenju/EmotionCoaster/blob/master/emotion_coaster.ino)**
+
+重點紀錄：
+
+- 能比較重量，並依照重量改變而更換 LED 表情
+- 以陣列排列樣式制定 LED 表情
+- 由於 LED 利用視覺暫留原理顯示表情，以 `millis()`同步測量、變換表情等模式。
 
 #### 接線圖
 > 有更新接線，因為 buzzer 的＋線在 Pin1 時，在 8x8 LED 發亮時，會同時發出叫聲。
