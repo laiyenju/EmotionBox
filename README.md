@@ -1,5 +1,5 @@
-# Arduino EmotionBox
-Emotion Box is an Arduino device as a reminder for drinking water.
+# Arduino Emotion Coaster
+Arduino Emotion Coaster is an Arduino device as a reminder for drinking water.
 
 ### Preparation
 - Arduino UNO board *1
@@ -11,7 +11,7 @@ Emotion Box is an Arduino device as a reminder for drinking water.
 ![Emotion_Cup_bb](https://user-images.githubusercontent.com/29245400/67158938-0df95500-f32e-11e9-9ce9-4d48b95f1653.jpg)
 
 
-## [Arduino] Emotion Cup＿提醒喝水裝置
+## [Arduino] Emotion Coaster＿提醒喝水裝置
 
 #### 運作步驟
 1. 水杯放到秤上，8x8 矩陣 LED 顯示「笑臉」
@@ -22,7 +22,6 @@ Emotion Box is an Arduino device as a reminder for drinking water.
 
 > **_已完成的程式碼 👉[emotion_cup](https://gist.github.com/laiyenju/5c44d5153dbb176a4f5e3de4e61c9672#file-emotion_cup)_**
 - 確定能比較重量，並依照重量改變而更換 LED 表情
-**- 待解決：蜂鳴器無法發出聲音（但使用 `Serial.println("BUZZER!")` 檢查會回傳訊息）**
 
 #### 使用的裝置
 - 主機板：Arduino UNO
