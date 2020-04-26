@@ -20,7 +20,7 @@ Arduino Emotion Coaster is an Arduino device as a reminder for drinking water.
 
 以上是一個循環。
 
-> **_已完成的程式碼 👉[emotion_coaster](https://github.com/laiyenju/EmotionBox/blob/master/emotion_box.ino)_**
+> **程式碼 👉[emotion_coaster](https://github.com/laiyenju/EmotionCoaster/blob/master/emotion_coaster.ino)_**
 - 確定能比較重量，並依照重量改變而更換 LED 表情
 
 #### 使用的裝置
